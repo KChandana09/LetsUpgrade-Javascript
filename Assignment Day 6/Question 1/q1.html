@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question1</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            
+        }
+    
+        .tabl {
+            font-family: sans-serif;
+            margin-top: 5%;
+            height: 10%;
+            width: 70%;
+            margin-left: 15%;
+            margin-right: 15%;
+            background-color: gainsboro;
+            padding-bottom: 10%;
+    
+        }
+
+        .tble {
+            width: 80%;
+            margin-left: 10%;
+            margin-top: 0.5%;
+            height: 100%;
+        }
+        h1{
+            margin-top:5%;
+            text-align: center;
+            font-family:sans-serif;
+           
+        }
+
+        td,th{
+            height: 100%;
+            width:0%;
+            text-align: center;
+            padding: 1%;
+           
+        }
+        .ins-data{
+            height: 40%;
+            width: 80%;
+            margin-left: 10%;
+            margin-top: 0.5%;
+            margin-bottom: 2%;
+        }
+       input {
+           padding:0.7%;
+           height: 40%px;
+           width: 100px;
+
+       }
+
+       .ins_btn{
+           height: 60%px;
+           width: 12%;
+           padding: 0.7%;
+
+       }
+       .del_btn{
+           height: 100%px;
+           width: 100%;
+           
+
+       }
+       .search {
+           font-family: 'Times New Roman', Times, serif;
+           margin-left: 10%;
+           height: 40%;
+          
+       }
+
+    </style>
+</head>
+<body>
+    <h1>Managers Information!</h1>
+   
+    <div class='tabl'>
+        <h1 >Data</h1>
+        <div class="ins-data">
+            <form onsubmit="insert(event)">
+                <input required type="text" placeholder="Name" id="ins-name" />
+                <input required type="number" placeholder="Age" id="ins-age" />
+                <input required type="text" placeholder="City" id="ins-city" />
+                <input required type="number" placeholder="Salary" id="ins-salary" />
+                <button class="ins_btn" required type="submit" onclick='insert(event)'>Add Data</button>
+            </form>
+           
+        </div>
+
+        <div class="search">
+            <input type="text" placeholder="Search here!" onkeyup="search()" id="searching">
+        </div>
+        <table border="1" class='tble' cellspacing=0>
+          <thead>
+            <tr>
+            <th>Sl.No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>Salary</th>
+            <th>Operation</th>
+            </tr>
+         </thead>
+         <tbody id="tablerows">
+            <tr >
+                <td>1</td>
+                <td>Chandana</td>
+                <td>20</td>
+                <td>Hyderabad</td>
+                <td>2000000</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    <script src='q1.js'></script>
+</body>
+</html>

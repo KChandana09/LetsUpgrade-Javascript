@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question2</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .tabl {
+            font-family:Arial, Helvetica, sans-serif;
+            margin-top: 5%;
+            height: 10%;
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+            background-color: gainsboro;
+            padding-bottom: 10%;
+
+        }
+
+        .tble {
+            width: 80%;
+            margin-left: 10%;
+            margin-top: 0.5%;
+            height: 100%;
+        }
+
+        h1 {
+            margin-top: 5%;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        th,td {
+            height: 100%;
+            
+            text-align: center;
+            padding: 0.5%;
+        }
+
+        .ins-data {
+            height: 40%;
+            width: 80%;
+            margin-left: 10%;
+            margin-top: 0.5%;
+            margin-bottom: 2%;
+        }
+
+        input {
+            padding: 0.7%;
+            height: 40%px;
+            width: 100px;
+
+        }
+
+        .ins_btn {
+            height: 60%px;
+            width: 12%;
+            padding: 0.7%;
+
+        }
+
+        .del_btn {
+            height: 100%px;
+            width: 100%;
+
+
+        }
+
+        .search{
+            font-family: 'Times New Roman', Times, serif;
+            margin-left: 10%;
+            height: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bus Management System!</h1>
+
+    <div class='tabl'>
+        <h1>Buses Data</h1>
+        <div class="ins-data">
+          
+            <form onsubmit="insert(event)">
+            <input required type="text" placeholder="Name" id="ins-name" />
+            <input required type="text" placeholder="Source" id="ins-source" />
+            <input required type="text" placeholder="Destination" id="ins-dest" />
+            <input required type="number" placeholder="Bus Number" id="ins-number"/>
+            <input required type="number" placeholder="Passenger Capacity" id="ins-passcap" />
+            <button class="ins_btn" required >Add Bus</button>
+            </form>
+
+        </div>
+
+        <div class="search">
+            <input type="text" placeholder="Search By Source" onkeyup="searchbysource()" id="searchsource">
+            <input type="text" placeholder="Search By Destination" id="searchdest" onkeyup="searchbydestination()"/>
+        </div>
+        <table border="1" class='tble' cellspacing=0>
+            <thead>
+                <tr>
+                    <th >Slno</th>
+                    <th>Name</th>
+                    <th>Source</th>
+                    <th>Destination</th>
+                    <th>Bus number</th>
+                    <th>Passenger capacity</th>
+                    
+                </tr>
+            </thead>
+            <tbody id="tablerows">
+             
+            </tbody>
+        </table>
+    </div>
+    <script src='q2.js'></script>
+</body>
+
+</html>
