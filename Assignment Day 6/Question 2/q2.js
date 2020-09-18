@@ -1,41 +1,60 @@
 window.onload=function(){
-    let buses = [];
+    let array = [];
 
-    if(localStorage.getItem("buses")==null){
-        let stringbuses=JSON.stringify(buses);
-        localStorage.setItem("buses", stringbuses);
+    if(localStorage.getItem("array")==null){
+        let stringbuses=JSON.stringify(array);
+
+        console.log(stringbuses);
+        localStorage.setItem("array", stringbuses);
     }
 
-};
-function display(bus_data=undefined) {
-    let resbuses;
-    document.getElementById("tbody").innerHTML="";
-    if(bus_data==undefined){
-    resbuses=JSON.parse(localStorage.getItem("buses"));
+}
+function display(arr=undefined) {
+    let array;
+    
+    if(arr==undefined){
+    array= JSON.parse(localStorage.getItem("array"));
+    }
+    else if(localStorage==undefined)
+    {
+        localStorage.setItem("array",JSON.stringify(array));
+        array = JSON.parse(localStorage.getItem("array"));
     }
     else{
-    resbuses = bus_data;
+        array = arr;
     }
-  
-    resbuses.forEach((element, index) => {
-      
-      document.getElementById("tbody").innerHTML+=`<tr>
+    
+    let data= "";
+    if(array != undefined){
+        array.forEach(function(element, index) {
+        let temp = `
+      <tr>
       <td>${index+1}</td>
       <td>${element.name}</td>
       <td>${element.source}</td>
       <td>${element.destination}</td>
       <td>${element.number}</td>
       <td>${element.passengerCapacity}</td>
-      <tr>`
+   
+      </tr>`;
+        data+=temp;
         
     });
+     console.log(typeof(array));
+     document.getElementById('tablerows').innerHTML = data;
 
+    }
 }
 display();
-
-
+    
+    
 function insert(e) {
-    e.preventDefault()  
+    if(localStorage.getItem("array")==null)
+    {
+        localStorage.setItem("array",stringbuses);
+    }
+    e.preventDefault();
+
     let bus = {};
     let ins_name = document.getElementById("ins-name").value;
     let ins_source = document.getElementById("ins-source").value;
@@ -46,50 +65,40 @@ function insert(e) {
    bus.name = ins_name;
    bus.source=ins_source;
    bus.destination=ins_dest;
-   bus.number=Number(ins_number);
-   bus.passengerCapacity=Number(ins_passcap);
+   bus.number=ins_number;
+   bus.passengerCapacity=ins_passcap;
 
-   let retbus=JSON.parse(localStorage.getItem("buses"));
-   retbus.push(bus);
-   strrtbuses=JSON.stringify(retbus);
-   localStorage.setItem("buses",strrtbuses);
+   let array=JSON.parse(localStorage.getItem("array"));
+   array.push(bus);
+   let strrtbuses=JSON.stringify(array);
+   localStorage.setItem("array",strrtbuses);
 
-    let retbus1 = JSON.parse(localStorage.getItem("buses"));
-    display(retbus1);
-    
-    document.getElementById("ins-name").value="";
-    document.getElementById("ins-source").value="";
-    document.getElementById("ins-dest").value="";
-    document.getElementById("ins-number").value="";
-    document.getElementById("ins-passcap").value="";
+    display();
+    location.reload();
 
-
+    document.getElementsByTagId("ins-name").value = "";
+    document.getElementsByTagId("ins-source").value = "";
+    document.getElementsByTagId("ins-dest").value = "";
+    document.getElementsByTagId("ins-number").value = "";
+    document.getElementsByTagId("ins-passcap").value = "";         
  
 }
 
-function searchbysource() {
-    let ser_ele = document.getElementById("searchsource").value;
+function search() {
+    let ser_ele = document.getElementById("searching").value;
 
-    let arrbus= JSON.parse(localStorage.getItem("buses"));
+    let array= JSON.parse(localStorage.getItem("array"));
 
-    let bus_arr = arrbus.filter( (element,index)=> {
-        
-        return element.source.toLowerCase().indexOf(ser_ele.toLowerCase())!=-1;
+    let bus_arr = array.filter(function (element) {
+        if (element.source.indexOf(ser_ele) != -1) {
+            return element.source.indexOf(ser_ele) != -1;
+        }
+        else if (element.destination.indexOf(ser_ele) != -1) {
+            return element.destination.indexOf(ser_ele) != -1;
+
+
+        };
 
     })
     display(bus_arr);
-
 }
-
-function searchbydestination(){
-    let ser_ele = document.getElementById("searchdest").value;
-
-    let arrbus= JSON.parse(localStorage.getItem("buses"));
-
-    let bus_arr = arrbus.filter( (element,index)=> {
-        
-        return element.destination.toLowerCase().indexOf(ser_ele.toLowerCase())!=-1;
-})
-  display(bus_arr);
-}
-

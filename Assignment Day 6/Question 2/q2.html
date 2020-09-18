@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,7 @@
         }
 
         .tabl {
-            font-family:Arial, Helvetica, sans-serif;
+            font-family: Cambria, Cochin, serif;
             margin-top: 5%;
             height: 10%;
             width: 80%;
@@ -37,7 +36,8 @@
             font-family: sans-serif;
         }
 
-        th,td {
+        th,
+        td {
             height: 100%;
             
             text-align: center;
@@ -73,10 +73,10 @@
 
         }
 
-        .search{
-            font-family: 'Times New Roman', Times, serif;
+        .search {
+            font-family: Cambria, Cochin, serif;
             margin-left: 10%;
-            height: 50%;
+            height: 40%;
         }
     </style>
 </head>
@@ -89,19 +89,20 @@
         <div class="ins-data">
           
             <form onsubmit="insert(event)">
-            <input required type="text" placeholder="Name" id="ins-name" />
-            <input required type="text" placeholder="Source" id="ins-source" />
-            <input required type="text" placeholder="Destination" id="ins-dest" />
-            <input required type="number" placeholder="Bus Number" id="ins-number"/>
-            <input required type="number" placeholder="Passenger Capacity" id="ins-passcap" />
-            <button class="ins_btn" required >Add Bus</button>
+                <input required type="text" placeholder="Name" id="ins-name" />
+                <input required type="text" placeholder="Source" id="ins-source" />
+                <input required type="text" placeholder="Destination" id="ins-dest" />
+                <input required type="number" placeholder="Bus Number" id="ins-number"/>
+                <input required type="number" placeholder="Passanger Capacity" id="ins-passcap"/>
+                <button class="ins_btn" required >Add Bus</button>
             </form>
 
         </div>
 
+
         <div class="search">
-            <input type="text" placeholder="Search By Source" onkeyup="searchbysource()" id="searchsource">
-            <input type="text" placeholder="Search By Destination" id="searchdest" onkeyup="searchbydestination()"/>
+            <input type="text" placeholder="search here!"  id="searching">
+            <button onclick="search()">Search</button>
         </div>
         <table border="1" class='tble' cellspacing=0>
             <thead>
@@ -112,7 +113,6 @@
                     <th>Destination</th>
                     <th>Bus number</th>
                     <th>Passenger capacity</th>
-                    
                 </tr>
             </thead>
             <tbody id="tablerows">
@@ -120,7 +120,7 @@
             </tbody>
         </table>
     </div>
-    <script src='q2.js'></script>
+    <script src="q2.js"></script>
 </body>
 
 </html>
