@@ -36,7 +36,8 @@ function display(targets){
                 <td>${element.age}</td>
                 <td>${element.city}</td>
                 <td>${element.salary}</td>
-                <td><button onclick="delete_ele(${index})" class="del_btn">delete</button></td>`;
+                <td><button onclick="delete_ele(${index})" class="del_btn">delete</button></td>
+                </tr>`;
 
                 
 
@@ -90,6 +91,7 @@ function search()
  display(ser_res_arr);
 
 }
+
 
 function delete_ele(index){
     console.log(index);

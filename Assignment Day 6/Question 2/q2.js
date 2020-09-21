@@ -99,6 +99,6 @@ function search() {
 
         };
 
-    })
+    }) 
     display(bus_arr);
 }
