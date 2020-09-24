@@ -1,16 +1,16 @@
 let products = [
     {
         id: 1,
-        name: "Office dress",
+        name: "Shirt",
         size: "L",
-        color: "white & black",
+        color: "white",
         price: 1200,
         image: "Product1.jpg",
         description: "Beautiful and fit",
     },
     {
         id: 2,
-        name: "Coat with palazzo",
+        name: "Coat",
         size: "M",
         color: "orange & white",
         price: 2000,
@@ -28,7 +28,7 @@ let products = [
     },
     {
         id: 4,
-        name: "Jeans Skirt",
+        name: "Jeans Shirt",
         size: "S",
         color: "blue",
         price: 1000,
@@ -102,10 +102,10 @@ let products = [
         id: 12,
         name: "Top",
         size: "L",
-        color: "Multi Colors",
+        color: "Orange",
         price: 700,
         image: "Product12.jpg",
-        description: "Awesome look with multi colors",
+        description: "Awesome look",
     },
 ];
 
@@ -121,7 +121,7 @@ function displayProducts(productsData, who = "productwrapper") {
     if (who == "productwrapper") {
       productsString += ` <div class="product">
         <div class="prodimg">
-          <img src="images/${image}" width="100%" />
+          <img src="product/${image}" width="100%" />
         </div>
         <h3>${name}</h3>
         <p>Price : ${price}$</p>
@@ -135,7 +135,7 @@ function displayProducts(productsData, who = "productwrapper") {
     } else if (who == "cart") {
       productsString += ` <div class="product">
         <div class="prodimg">
-          <img src="images/${image}" width="100%" />
+          <img src="product/${image}" width="100%" />
         </div>
         <h3>${name}</h3>
         <p>Price : ${price}$</p>
